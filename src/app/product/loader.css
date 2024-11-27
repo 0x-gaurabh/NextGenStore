@@ -1,0 +1,53 @@
+/* HTML: <div class="loader"></div> */
+/* .loader {
+  width: 50px;
+  --b: 8px; 
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 1px;
+  background: conic-gradient(#0000 10%,#f03355) content-box;
+  -webkit-mask:
+    repeating-conic-gradient(#0000 0deg,#000 1deg 20deg,#0000 21deg 36deg),
+    radial-gradient(farthest-side,#0000 calc(100% - var(--b) - 1px),#000 calc(100% - var(--b)));
+  -webkit-mask-composite: destination-in;
+          mask-composite: intersect;
+  animation:l4 1s infinite steps(10);
+}
+@keyframes l4 {to{transform: rotate(1turn)}} */
+
+.spinner {
+  position: relative;
+  width: 22.4px;
+  height: 22.4px;
+}
+
+.spinner::before,
+.spinner::after {
+  --radius: 250;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: spinner-w7nm60 1.6s infinite linear;
+  background: #152ac7;
+  border-radius: 50%;
+}
+
+.spinner::before {
+  --radius: -250;
+  background: #0c45b7;
+}
+
+@keyframes spinner-w7nm60 {
+  0% {
+     transform: scale(1) rotate(0deg) translateY(calc(var(--radius) * 1%));
+  }
+
+  50% {
+     transform: scale(0.5) rotate(1440deg) translateY(0);
+  }
+
+  100% {
+     transform: scale(1) rotate(2920deg) translateY(calc(var(--radius) * 1%));
+  }
+}
